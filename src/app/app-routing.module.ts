@@ -18,10 +18,6 @@ const routes: Routes = [
     path: 'items',
     loadChildren: () =>
       import('./components/items/items.module').then((m) => m.ItemsModule),
-  },
-  {
-    path: '**',
-    redirectTo: 'skins',
   }
 ];
 
