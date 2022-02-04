@@ -1,10 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'skins',
+    loadChildren: () =>
+      import('./components/skins/skins.module').then((m) => m.ChampionsModule),
+  },
+  {
+    path: 'champions',
+    loadChildren: () =>
+      import('./components/champions/champions.module').then(
+        (m) => m.ChampionsModule
+      ),
+  },
+  {
+    path: 'items',
+    loadChildren: () =>
+      import('./components/items/items.module').then((m) => m.ItemsModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'skins',
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

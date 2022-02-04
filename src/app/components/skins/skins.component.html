@@ -1,0 +1,51 @@
+
+<div
+  class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4 mt-3"
+  *ngIf="!loading"
+>
+  <div class="col mb-4" *ngFor="let champion of champions">
+    <div class="card h-100">
+      <img
+        src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{
+          champion.id
+        }}_0.jpg"
+        (click)="openLg(content, champion.id)"
+        class="card-img-top img-gray"
+        alt="{{ champion.name }}"
+      />
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let champ of champion;let index = index;let isFirst = first" [ngClass]="{active:isFirst}" class="carousel-item">
+          <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{cham}}_{{champ.num}}.jpg" class="d-block w-100" alt="{{champ.id}}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 *ngIf="champ.name !== 'default'">{{champ.name}}</h5>
+            <h5 *ngIf="champ.name === 'default'">{{cham}}</h5>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previo</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-footer text-center">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
