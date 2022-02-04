@@ -30,7 +30,7 @@ export class ChampionsComponent implements OnInit {
     });
   }
 
-  openLg(content: any, champion: any) {
+  abrirModal(content: any, champion: any) {
     this.modalService.open(content, { size: 'lg', centered: true } );
 
     this.championsServices.getChampion(champion)

@@ -9,7 +9,7 @@
         src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{
           champion.id
         }}_0.jpg"
-        (click)="openLg(content, champion.id)"
+        (click)="abrirModal(modal, champion.id)"
         class="card-img-top img-gray"
         alt="{{ champion.name }}"
       />
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<ng-template #content let-modal>
+<ng-template #modal let-modal>
   <div class="modal-body">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
