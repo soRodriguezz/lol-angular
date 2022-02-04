@@ -37,10 +37,7 @@ export class ChampionsComponent implements OnInit {
       .subscribe((resp: Champion) => {
         this.champion = Object.values(resp)[0].skins;
         this.cham = Object.values(resp)[0].id;
-
-        console.log(Object.values(resp)[0].skins);
       });
   }
-
 
 }

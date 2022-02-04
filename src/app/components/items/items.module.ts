@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ItemsRoutingModule } from './items-routing.module';
 import { ItemsComponent } from './items.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -11,7 +12,11 @@ import { ItemsComponent } from './items.component';
   ],
   imports: [
     CommonModule,
-    ItemsRoutingModule
+    ItemsRoutingModule,
+    DataTablesModule
+  ],
+  exports: [
+    ItemsComponent
   ]
 })
 export class ItemsModule { }
