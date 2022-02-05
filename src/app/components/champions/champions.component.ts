@@ -14,6 +14,9 @@ export class ChampionsComponent {
   public hiddenAlert = false;
   public statusError!: string;
   public tipoChamp: any;
+  public pros: any;
+  public contras: any;
+  public spells: any;
 
   public champForm: FormGroup = this._fb.group({
     champ: ['', [Validators.required]],
@@ -35,6 +38,9 @@ export class ChampionsComponent {
         this.hiddenAlert = false;
         this.champion = Object.values(resp)[0];
         this.tipoChamp = this.champion.tags;
+        this.pros = this.champion.allytips;
+        this.contras = this.champion.enemytips;
+        this.spells = this.champion.spells;
         console.log(this.champion);
       },
       error: (error: any) => {
