@@ -35,7 +35,6 @@ export class ChampionsComponent {
         this.hiddenAlert = false;
         this.champion = Object.values(resp)[0];
         this.tipoChamp = this.champion.tags;
-        console.log(this.tipoChamp);
         console.log(this.champion);
       },
       error: (error: any) => {
