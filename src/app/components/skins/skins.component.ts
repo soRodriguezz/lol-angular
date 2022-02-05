@@ -13,6 +13,7 @@ export class ChampionsComponent implements OnInit {
   public loading = true;
   public champion: any;
   public cham: any;
+  public loadingModal = true;
 
   constructor(
     private championsServices: ChampionsService,
@@ -23,18 +24,20 @@ export class ChampionsComponent implements OnInit {
     this.getChampions();
   }
 
-  getChampions(): void {
+  private getChampions(): void {
     this.championsServices.getChampions().subscribe((resp) => {
       this.champions = Object.values(resp);
       this.loading = false;
     });
   }
 
-  abrirModal(content: any, champion: any) {
+  public abrirModal(content: any, champion: any): void {
     this.modalService.open(content, { size: 'lg', centered: true } );
-
+    this.champion = '';
+    this.loadingModal = true;
     this.championsServices.getChampion(champion)
       .subscribe((resp: Champion) => {
+        this.loadingModal = false;
         this.champion = Object.values(resp)[0].skins;
         this.cham = Object.values(resp)[0].id;
       });

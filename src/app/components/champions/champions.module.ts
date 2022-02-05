@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ChampionsRoutingModule } from './champions-routing.module';
 import { ChampionsComponent } from './champions.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ChampionsComponent } from './champions.component';
   ],
   imports: [
     CommonModule,
-    ChampionsRoutingModule
+    ChampionsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ChampionsModule { }
