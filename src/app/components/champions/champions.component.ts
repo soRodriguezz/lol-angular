@@ -41,7 +41,6 @@ export class ChampionsComponent {
         this.pros = this.champion.allytips;
         this.contras = this.champion.enemytips;
         this.spells = this.champion.spells;
-        console.log(this.champion);
       },
       error: (error: any) => {
         this.loading = false;
