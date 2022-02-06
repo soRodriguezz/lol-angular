@@ -30,6 +30,7 @@ export class ChampionsComponent {
   public buscarCampeon(): void {
     this.loading = true;
     this.hiddenAlert = false;
+    this.hiddenChamp = true;
 
     this.championsService.getChampion(this.capitalizarChamp()).subscribe({
       next: (resp: any) => {

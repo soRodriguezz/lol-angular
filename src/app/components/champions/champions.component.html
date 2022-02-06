@@ -125,7 +125,31 @@
         </div>
       </div>
 
-      <div style="height: 340px;overflow: auto;">
+      <div style="height: 300px; overflow: auto">
+        <div class="card mb-3" style="max-width: 100%">
+          <div class="row g-0">
+            <div
+              class="col-md-4 d-flex justify-content-center align-items-center"
+            >
+              <img
+                src="https://ddragon.leagueoflegends.com/cdn/12.3.1/img/passive/{{
+                  champion.passive.image.full
+                }}"
+                class="img-fluid rounded-start"
+                alt=""
+              />
+            </div>
+            <div class="col-md-8" style="overflow: auto">
+              <div class="card-body">
+                <div class="card-body">
+                  <h5 class="card-title">{{ champion.passive.name }}</h5>
+                  <p class="card-text">{{ champion.passive.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div
           *ngFor="let spell of spells"
           class="card mb-3"
@@ -143,14 +167,15 @@
                 alt="{{ spell.name }}"
               />
             </div>
-            <div class="col-md-8" style="overflow: auto;">
+            <div class="col-md-8" style="overflow: auto">
               <div class="card-body">
                 <h5 class="card-title">{{ spell.name }}</h5>
                 <p class="card-text">{{ spell.description }}</p>
                 <span
-                    *ngFor="let cooldown of spell.cooldown"
-                    class="badge bg-primary text-end m-1"
-                >{{ cooldown }}</span>
+                  *ngFor="let cooldown of spell.cooldown"
+                  class="badge bg-primary text-end m-1"
+                  >{{ cooldown }}s</span
+                >
               </div>
             </div>
           </div>
